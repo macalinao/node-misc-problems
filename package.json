@@ -1,0 +1,20 @@
+{
+  "name": "node-misc-problems",
+  "description": "Miscellaneous programming problems implemented in Node.js",
+  "version": "0.0.0",
+  "dependencies": {},
+  "author": "Ian Macalinao <me@ian.pw>",
+  "repository": "simplyianm/node-misc-problems",
+  "license": "MIT",
+  "keywords": [
+    "node-misc-problems",
+    ""
+  ],
+  "scripts": {
+    "test": "./node_modules/.bin/mocha -R spec"
+  },
+  "devDependencies": {
+    "chai": "^1.10.0",
+    "mocha": "^2.1.0"
+  }
+}
