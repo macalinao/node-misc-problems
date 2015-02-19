@@ -14,7 +14,7 @@ var map = [
 var start = [6, 0];
 var end = [0, 8];
 
-var pathWeight = 5;
+var pathDist = 5;
 var path = [
   [6, 0],
   [6, 1],
@@ -35,5 +35,7 @@ var path = [
 
 describe('dijkstras weighted', function() {
   it('should find the path', function() {
+    var res = dijkstras(map, start, end);
+    expect(res.dist).to.equal(pathWeight);
   });
 });
