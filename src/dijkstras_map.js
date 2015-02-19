@@ -1,3 +1,9 @@
+/**
+ * Dijkstra's.
+ *
+ * Let 1 represent a wall on the map and 0 represent an
+ * open node.
+ */
 module.exports = function dijkstras(map, start, end) {
   // List of all nodes
   var list = [];
