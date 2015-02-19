@@ -43,7 +43,7 @@ module.exports = function dijkstras(map, start, end) {
     }
 
     // Check if found
-    if (min[0] == end[0] && min[1] == end[1]) return min.dist;
+    if (min[0] == end[0] && min[1] == end[1]) return min;
 
     // Remove min element from list
     list.splice(list.indexOf(min), 1);
@@ -61,7 +61,7 @@ module.exports = function dijkstras(map, start, end) {
     [u, d, l, r].map(function(pair) {
       if (!pair) return;
       var alt = min.dist + 1;
-      if (!pair.dist || alt < pair.dist) {
+      if (typeof pair.dist === 'undefined' || alt < pair.dist) {
         pair.dist = alt;
         pair.prev = min;
       }
