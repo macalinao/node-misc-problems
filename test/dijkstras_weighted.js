@@ -36,6 +36,15 @@ var path = [
 describe('dijkstras weighted', function() {
   it('should find the path', function() {
     var res = dijkstras(map, start, end);
-    expect(res.dist).to.equal(pathWeight);
+    expect(res.dist).to.equal(pathDist);
+
+    var revPath = path.reverse();
+    for (var i = 0; i < revPath.length; i++) {
+      var a = revPath[i];
+      expect(a[0]).to.equal(res[0]);
+      expect(a[1]).to.equal(res[1]);
+      res = res.prev;
+    }
+
   });
 });

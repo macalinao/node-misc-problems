@@ -31,7 +31,30 @@ module.exports = function dijkstras(map, start, end) {
     }
   }
 
-  // Dijkstra's time
+  // Dijkstra's
   while (list.length > 0) {
+    // Get minimum
+    var min = minPair(list);
+    list.splice(list.indexOf(min), 1);
+    var i = min[0];
+    var j = min[1];
+
+    // Check if found
+    if (pairEq(min, end)) return min;
+
+    // Find distances
+    [
+      (larr[i - 1] || {})[j],
+      (larr[i + 1] || {})[j],
+      (larr[i] || {})[j - 1],
+      (larr[i] || {})[j + 1]
+    ].map(function(el) {
+      if (!el) return;
+      var m = el.weight + min.dist;
+      if (typeof el.dist === 'undefined' || m < el.dist) {
+        el.dist = m;
+        el.prev = min;
+      }
+    });
   }
 };
