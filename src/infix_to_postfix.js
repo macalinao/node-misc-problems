@@ -6,7 +6,7 @@ var operators = {
   '-': 2
 };
 
-var reserved = ['+', '*', '(', ')'];
+var reserved = ['(', ')'].concat(Object.keys(operators));
 
 var infixToPostfix = module.exports = function infixToPostfix(str) {
   var ops = str.split(' ');
