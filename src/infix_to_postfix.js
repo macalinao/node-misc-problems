@@ -8,6 +8,7 @@ var operators = {
 
 var reserved = ['(', ')'].concat(Object.keys(operators));
 
+// Shunting-yard algorithm
 var infixToPostfix = module.exports = function infixToPostfix(str) {
   var ops = str.split(' ');
   var stack = [];
