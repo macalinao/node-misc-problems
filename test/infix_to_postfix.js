@@ -10,5 +10,8 @@ describe('infix to postfix', function() {
     expect(infixToPostfix('6 * ( 4 + 5 ) - 25 / ( 2 + 3 )'))
       .to.equal('6 4 5 + * 25 2 3 + / -');
 
+    expect(infixToPostfix('2 ^ 2 ^ 3'))
+      .to.equal('2 2 3 ^ ^');
+
   });
 });

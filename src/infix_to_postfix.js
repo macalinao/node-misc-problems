@@ -29,7 +29,7 @@ var infixToPostfix = module.exports = function infixToPostfix(str) {
 
         // Push stuff
         var o1 = operators[o];
-        if (o1 > o2) {
+        if ((o !== '^' && o1 > o2) || (o === '^' && o1 >= o2)) {
           break;
         }
 
