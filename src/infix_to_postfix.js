@@ -1,4 +1,11 @@
-var operators = ['+', '*'];
+var operators = {
+  '^': 4,
+  '*': 3,
+  '/': 3,
+  '+': 2,
+  '-': 2
+};
+
 var reserved = ['+', '*', '(', ')'];
 
 var infixToPostfix = module.exports = function infixToPostfix(str) {
@@ -15,13 +22,13 @@ var infixToPostfix = module.exports = function infixToPostfix(str) {
       continue;
     }
 
-    if (operators.indexOf(o) !== -1) {
+    if (operators[o]) {
       while (stack.length > 0) {
-        var o2 = operators.indexOf(stack[stack.length - 1]);
-        if (o2 === -1) break;
+        var o2 = operators[stack[stack.length - 1]];
+        if (!o2) break;
 
         // Push stuff
-        var o1 = operators.indexOf(o);
+        var o1 = operators[o];
         if (o1 > o2) {
           break;
         }
